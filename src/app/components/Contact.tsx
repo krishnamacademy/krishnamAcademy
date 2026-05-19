@@ -5,6 +5,8 @@ import { MapPin, Phone, Mail, Clock, Send, ShieldCheck } from "lucide-react";
 
 export default function Contact() {
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -12,13 +14,34 @@ export default function Contact() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate query submission
-    setFormSubmitted(true);
-    setTimeout(() => {
-      setFormData({ name: "", phone: "", std: "Std. VIII", message: "" });
-    }, 4000);
+    setIsSubmitting(true);
+    setErrorMsg("");
+    
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      
+      const data = await res.json();
+      
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to submit inquiry");
+      }
+      
+      setFormSubmitted(true);
+      setTimeout(() => {
+        setFormData({ name: "", phone: "", std: "Std. VIII", message: "" });
+        setFormSubmitted(false);
+      }, 5000);
+    } catch (err: any) {
+      setErrorMsg(err.message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -154,12 +177,18 @@ export default function Contact() {
                     />
                   </div>
 
+                  {errorMsg && (
+                    <div className="text-red-500 text-xs font-medium text-center">
+                      {errorMsg}
+                    </div>
+                  )}
                   <button
                     type="submit"
-                    className="btn-gold w-full mt-2 !py-3.5 flex items-center justify-center gap-2"
+                    disabled={isSubmitting}
+                    className="btn-gold w-full mt-2 !py-3.5 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
                   >
-                    <Send className="w-4 h-4" />
-                    <span>Submit Inquiry</span>
+                    <Send className={`w-4 h-4 ${isSubmitting ? 'animate-pulse' : ''}`} />
+                    <span>{isSubmitting ? "Sending..." : "Submit Inquiry"}</span>
                   </button>
                 </form>
               )}
