@@ -1,0 +1,248 @@
+@import "tailwindcss";
+
+:root {
+  --navy: #0F172A;
+  --navy-light: #1E293B;
+  --navy-dark: #020617;
+  --gold: #F59E0B;
+  --gold-hover: #D97706;
+  --gold-light: rgba(245, 158, 11, 0.1);
+  --white: #FFFFFF;
+  --off-white: #F8FAFC;
+  --slate: #64748B;
+  --slate-light: #F1F5F9;
+  
+  --border-gold: rgba(245, 158, 11, 0.2);
+  --border-glass: rgba(255, 255, 255, 0.08);
+  --glass: rgba(15, 23, 42, 0.75);
+  --glass-light: rgba(255, 255, 255, 0.03);
+}
+
+/* ── Typography & Smooth Scroll ── */
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden !important;
+}
+
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden !important;
+  background-color: var(--off-white);
+  color: var(--navy);
+  font-family: var(--font-inter), sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 700;
+}
+
+/* ── Custom Utilities ── */
+.glass {
+  background: var(--glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glass);
+}
+
+.glass-premium {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.8));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-gold);
+}
+
+.gold-text-gradient {
+  background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 50%, #F59E0B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gold-border {
+  border: 1px solid var(--border-gold);
+}
+
+.noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  background-size: 100px 100px;
+  opacity: 0.5;
+}
+
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(245, 158, 11, 0.03) 1px, transparent 1px), 
+    linear-gradient(90deg, rgba(245, 158, 11, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.dot-bg {
+  background-image: radial-gradient(circle, rgba(245, 158, 11, 0.08) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+}
+
+/* ── Micro-Animations ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(245, 158, 11, 0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-gold {
+  animation: pulse-gold 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ── Cards & Interactive Components ── */
+.premium-card {
+  background: var(--white);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 20px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.premium-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.premium-card-dark {
+  background: var(--navy-light);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.premium-card-dark:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(2, 6, 23, 0.4);
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+/* ── Premium Buttons ── */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%);
+  color: var(--navy-dark);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.2);
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.4);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 27px;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(245, 158, 11, 0.4);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-outline:hover {
+  background: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.8);
+  transform: translateY(-2px);
+}
+
+.btn-outline-navy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 27px;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  background: transparent;
+  color: var(--navy);
+  border: 2px solid rgba(15, 23, 42, 0.15);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-outline-navy:hover {
+  background: rgba(15, 23, 42, 0.04);
+  border-color: rgba(15, 23, 42, 0.8);
+  transform: translateY(-2px);
+}
+
+/* ── Section Dividers & Tags ── */
+.premium-divider {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #F59E0B, #FBBF24);
+  border-radius: 9999px;
+}
+
+.premium-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(245, 158, 11, 0.08);
+  color: #D97706;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--navy-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FBBF24;
+}
