@@ -22,8 +22,8 @@ export const metadata: Metadata = {
   description: "Premier Mathematics & Science coaching for CBSE, English & Semi-English Students (Std. VIII to X) in Savda. Led by Er. Saurabh Teli.",
   keywords: ["Krishnam Academy", "Krishnam Academy Savda", "CBSE Coaching Savda", "Saurabh Teli Savda", "Mathematics Coaching Savda", "Science Coaching Savda"],
   icons: {
-    icon: "/Imgs/logo.png",
-    apple: "/Imgs/logo.png",
+    icon: "https://krishnamacademy.in/Imgs/logo.png",
+    apple: "https://krishnamacademy.in/Imgs/logo.png",
   },
   openGraph: {
     title: "Krishnam Academy – Learn Smart. Think Better. Achieve More.",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     siteName: "Krishnam Academy",
     images: [
       {
-        url: "/Imgs/logo.png",
+        url: "https://krishnamacademy.in/Imgs/logo.png",
         width: 800,
         height: 800,
         alt: "Krishnam Academy Logo",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Krishnam Academy – Learn Smart. Think Better. Achieve More.",
     description: "Premier Mathematics & Science coaching for CBSE, English & Semi-English Students (Std. VIII to X) in Savda.",
-    images: ["/Imgs/logo.png"],
+    images: ["https://krishnamacademy.in/Imgs/logo.png"],
   },
 };
 
