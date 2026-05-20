@@ -21,6 +21,10 @@ export const metadata: Metadata = {
   title: "Krishnam Academy – Learn Smart. Think Better. Achieve More.",
   description: "Premier Mathematics & Science coaching for CBSE, English & Semi-English Students (Std. VIII to X) in Savda. Led by Er. Saurabh Teli.",
   keywords: ["Krishnam Academy", "Krishnam Academy Savda", "CBSE Coaching Savda", "Saurabh Teli Savda", "Mathematics Coaching Savda", "Science Coaching Savda"],
+  icons: {
+    icon: "/Imgs/logo.png",
+    apple: "/Imgs/logo.png",
+  },
   openGraph: {
     title: "Krishnam Academy – Learn Smart. Think Better. Achieve More.",
     description: "Premier Mathematics & Science coaching for CBSE Std. VIII to X in Savda. Led by Er. Saurabh Teli (B.E. Mechanical, B.Ed.).",
@@ -30,10 +34,10 @@ export const metadata: Metadata = {
     siteName: "Krishnam Academy",
     images: [
       {
-        url: "/og-image.jpg", // Placeholder image in public/
-        width: 1200,
-        height: 630,
-        alt: "Krishnam Academy Savda",
+        url: "/Imgs/logo.png",
+        width: 800,
+        height: 800,
+        alt: "Krishnam Academy Logo",
       },
     ],
   },
@@ -41,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Krishnam Academy – Learn Smart. Think Better. Achieve More.",
     description: "Premier Mathematics & Science coaching for CBSE, English & Semi-English Students (Std. VIII to X) in Savda.",
-    images: ["/og-image.jpg"],
+    images: ["/Imgs/logo.png"],
   },
 };
 
@@ -55,7 +59,7 @@ export default function RootLayout({
     "@type": "EducationalOrganization",
     "name": "Krishnam Academy",
     "url": "https://krishnamacademy.in",
-    "logo": "https://krishnamacademy.in/logo.png",
+    "logo": "https://krishnamacademy.in/Imgs/logo.png",
     "description": "Premier Mathematics & Science coaching for CBSE, English & Semi-English Students (Std. VIII to X) in Savda.",
     "address": {
       "@type": "PostalAddress",
