@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from "react";
 import { GraduationCap, Menu, X, Phone } from "lucide-react";
 
+import Image from "next/image";
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,8 +38,8 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#F59E0B] to-[#FBBF24] flex items-center justify-center text-[#0F172A] shadow-md group-hover:scale-105 transition-transform duration-300">
-            <GraduationCap className="w-6 h-6 stroke-[2.5]" />
+          <div className="relative w-12 h-12 rounded-xl bg-white shadow-md group-hover:scale-105 transition-transform duration-300 overflow-hidden flex items-center justify-center p-1 border border-white/10">
+            <Image src="/Imgs/logo.png" alt="Krishnam Academy Logo" width={40} height={40} className="object-contain" priority />
           </div>
           <div className="flex flex-col">
             <span className="font-extrabold text-lg md:text-xl tracking-tight text-white group-hover:text-[#F59E0B] transition-colors duration-300">

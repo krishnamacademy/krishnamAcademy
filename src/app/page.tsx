@@ -1,19 +1,21 @@
 "use client";
 
 import React from "react";
+import dynamic from "next/dynamic";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import WhyUs from "./components/WhyUs";
-import Courses from "./components/Courses";
-import Gallery from "./components/Gallery";
-import Offers from "./components/Offers";
-import CompetitiveExam from "./components/CompetitiveExam";
-import Testimonials from "./components/Testimonials";
-import Contact from "./components/Contact";
-import SocialMediaBar from "./components/SocialMediaBar";
-import Footer from "./components/Footer";
 import FloatingCTA from "./components/FloatingCTA";
+
+const Courses = dynamic(() => import("./components/Courses"));
+const Gallery = dynamic(() => import("./components/Gallery"));
+const Offers = dynamic(() => import("./components/Offers"));
+const CompetitiveExam = dynamic(() => import("./components/CompetitiveExam"));
+const Testimonials = dynamic(() => import("./components/Testimonials"));
+const Contact = dynamic(() => import("./components/Contact"));
+const SocialMediaBar = dynamic(() => import("./components/SocialMediaBar"));
+const Footer = dynamic(() => import("./components/Footer"));
 
 export default function Home() {
   return (

@@ -7,19 +7,58 @@ const contactSchema = z.object({
   phone: z.string().min(10, "Phone number must be at least 10 digits"),
   std: z.string(),
   message: z.string().min(5, "Message is too short"),
+  honeyPot: z.string().optional().or(z.literal('')),
 });
+
+// Simple in-memory rate limiter
+const rateLimitMap = new Map<string, { count: number; timestamp: number }>();
+const RATE_LIMIT_WINDOW_MS = 60 * 1000; // 1 minute
+const MAX_REQUESTS_PER_WINDOW = 3;
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const record = rateLimitMap.get(ip);
+  
+  if (!record) {
+    rateLimitMap.set(ip, { count: 1, timestamp: now });
+    return false;
+  }
+  
+  if (now - record.timestamp > RATE_LIMIT_WINDOW_MS) {
+    rateLimitMap.set(ip, { count: 1, timestamp: now });
+    return false;
+  }
+  
+  record.count += 1;
+  return record.count > MAX_REQUESTS_PER_WINDOW;
+}
 
 export async function POST(req: Request) {
   try {
+    // Get IP for rate limiting
+    const ip = req.headers.get('x-forwarded-for') || 
+               req.headers.get('x-real-ip') || 
+               'unknown';
+               
+    if (isRateLimited(ip)) {
+      return NextResponse.json({ error: 'Too many requests. Please try again later.' }, { status: 429 });
+    }
+
     const body = await req.json();
     
     // Validate request body
     const result = contactSchema.safeParse(body);
     if (!result.success) {
-      return NextResponse.json({ error: result.error.errors[0].message }, { status: 400 });
+      return NextResponse.json({ error: result.error.issues[0].message }, { status: 400 });
     }
 
-    const { name, phone, std, message } = result.data;
+    const { name, phone, std, message, honeyPot } = result.data;
+
+    // Honeypot check - if filled out, it's a bot. Return fake success to confuse it.
+    if (honeyPot && honeyPot.length > 0) {
+      console.log(`Blocked bot submission from IP: ${ip}`);
+      return NextResponse.json({ success: true, dummy: true });
+    }
 
     // Use environment variables for email authentication
     const user = process.env.SMTP_EMAIL;

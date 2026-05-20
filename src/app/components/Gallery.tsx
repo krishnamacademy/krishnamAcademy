@@ -1,51 +1,48 @@
 "use client";
 
-import React from "react";
-import { MonitorPlay, Library, BookOpen, FlaskConical, Users, Presentation, ShieldCheck } from "lucide-react";
+import React, { useState } from "react";
+import Image from "next/image";
+import { ShieldCheck, X } from "lucide-react";
 
 export default function Gallery() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   const rooms = [
     {
-      label: "AI Smart Classroom 1",
-      icon: <Presentation className="w-10 h-10 text-[#F59E0B]" />,
-      desc: "Full AI-interactive digital whiteboard with 3D concept visualization for Math and Science.",
+      label: "Interactive Smart Board",
+      image: "/Imgs/gallery-3.jpeg",
+      desc: "75 Inch AI-Powered Smart Board for immersive and visual learning experiences.",
       tag: "Technology",
-      gradient: "from-[#0F172A] to-[#1E293B]",
     },
     {
-      label: "AI Smart Classroom 2",
-      icon: <MonitorPlay className="w-10 h-10 text-[#3B82F6]" />,
-      desc: "Dual projection layout optimized for interactive doubt-clearing and online simulations.",
-      tag: "Technology",
-      gradient: "from-[#0F172A] to-[#1E3A8A]",
+      label: "Classroom Layout",
+      image: "/Imgs/gallery-4.jpeg",
+      desc: "Spacious seating arrangement with modern desks ensuring comfort for every student.",
+      tag: "Infrastructure",
     },
     {
-      label: "Main Study Hall",
-      icon: <BookOpen className="w-10 h-10 text-emerald-500" />,
-      desc: "Spacious, well-lit library and self-study room seating up to 30 students comfortably.",
-      tag: "Self-Study",
-      gradient: "from-[#0F172A] to-[#064E3B]",
+      label: "Digital Learning",
+      image: "/Imgs/gallery-5.jpeg",
+      desc: "State-of-the-art interactive panels facilitating dynamic presentations and active engagement.",
+      tag: "Engagement",
     },
     {
-      label: "Science Corner",
-      icon: <FlaskConical className="w-10 h-10 text-purple-500" />,
-      desc: "Dedicated lab apparatus space for hands-on Physics experiments and Chemistry models.",
-      tag: "Practical Work",
-      gradient: "from-[#0F172A] to-[#581C87]",
+      label: "Spacious Environment",
+      image: "/Imgs/gallery-6.jpeg",
+      desc: "Well-ventilated and bright classrooms designed to maintain student focus and energy.",
+      tag: "Ambiance",
     },
     {
-      label: "Mathematics Zone",
-      icon: <Library className="w-10 h-10 text-rose-500" />,
-      desc: "Visual math workspace filled with geometric shapes, reference tools, and theorem boards.",
-      tag: "Workshop",
-      gradient: "from-[#0F172A] to-[#881337]",
+      label: "Comfortable Seating",
+      image: "/Imgs/gallery-7.jpeg",
+      desc: "Ergonomically designed desks prioritizing student posture during long study sessions.",
+      tag: "Comfort",
     },
     {
-      label: "Group Learning Bay",
-      icon: <Users className="w-10 h-10 text-cyan-500" />,
-      desc: "Flexible modular desks facilitating collaborative group tests and interactive group tasks.",
-      tag: "Collaborative",
-      gradient: "from-[#0F172A] to-[#164E63]",
+      label: "Dedicated Study Zones",
+      image: "/Imgs/gallery-8.jpeg",
+      desc: "Organized learning spaces that minimize distractions and foster a quiet study atmosphere.",
+      tag: "Focus",
     },
   ];
 
@@ -57,13 +54,13 @@ export default function Gallery() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center flex flex-col items-center gap-4 mb-16">
-          <span className="premium-tag">Modern Learning Environment</span>
+          <span className="premium-tag">Glimpses of Success</span>
           <h2 className="text-4xl font-extrabold text-[#0F172A] tracking-tight">
-            Smart Classroom <span className="gold-text-gradient">Gallery</span>
+            Our <span className="gold-text-gradient">Gallery</span>
           </h2>
           <div className="premium-divider" />
           <p className="text-slate-500 max-w-xl text-center leading-relaxed">
-            Step inside Krishnam Academy—equipped with modern educational tech that makes learning engaging and alive.
+            Take a look at the energetic and engaging learning environment at Krishnam Academy.
           </p>
         </div>
 
@@ -72,21 +69,22 @@ export default function Gallery() {
           {rooms.map((room, idx) => (
             <div
               key={idx}
-              className="group premium-card overflow-hidden bg-white border border-[#E2E8F0] hover:border-[#F59E0B]/40 hover:shadow-xl transition-all duration-300 flex flex-col"
+              className="group premium-card overflow-hidden bg-white border border-[#E2E8F0] hover:border-[#F59E0B]/40 hover:shadow-xl transition-all duration-300 flex flex-col cursor-pointer"
+              onClick={() => setSelectedImage(room.image)}
             >
               {/* Graphic visual card screen */}
-              <div className={`relative h-56 bg-gradient-to-br ${room.gradient} flex items-center justify-center overflow-hidden shrink-0`}>
-                {/* Background animations */}
-                <div className="absolute inset-0 dot-bg opacity-20 group-hover:opacity-30 transition-opacity" />
-                <div className="absolute top-4 left-4">
-                  <span className="text-[10px] uppercase font-bold tracking-widest bg-white/10 text-white/90 border border-white/20 px-2.5 py-1 rounded-full font-mono">
+              <div className="relative h-56 bg-slate-900 flex items-center justify-center overflow-hidden shrink-0">
+                <Image 
+                  src={room.image} 
+                  alt={room.label} 
+                  fill 
+                  className="object-cover opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500" 
+                />
+                
+                <div className="absolute top-4 left-4 z-10">
+                  <span className="text-[10px] uppercase font-bold tracking-widest bg-black/50 backdrop-blur-md text-white border border-white/20 px-2.5 py-1 rounded-full font-mono">
                     {room.tag}
                   </span>
-                </div>
-
-                {/* Animated Lucide Icon */}
-                <div className="relative z-10 group-hover:scale-110 transition-transform duration-500 bg-white/5 border border-white/10 p-6 rounded-3xl backdrop-blur-md shadow-inner">
-                  {room.icon}
                 </div>
               </div>
 
@@ -110,6 +108,36 @@ export default function Gallery() {
           ))}
         </div>
       </div>
+
+      {/* Fullscreen Image Modal */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button 
+            className="absolute top-6 right-6 text-white hover:text-[#F59E0B] transition-colors bg-white/10 hover:bg-white/20 p-2 rounded-full"
+            onClick={(e) => {
+              e.stopPropagation();
+              setSelectedImage(null);
+            }}
+          >
+            <X className="w-8 h-8" />
+          </button>
+          
+          <div 
+            className="relative w-full max-w-6xl h-[85vh] rounded-2xl overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src={selectedImage}
+              alt="Gallery Full Preview"
+              fill
+              className="object-contain drop-shadow-2xl"
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { CheckCircle2, Star, Users, BrainCircuit } from "lucide-react";
 
 export default function About() {
@@ -19,37 +20,36 @@ export default function About() {
 
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
-          {/* Left Column: Graphics & Stats */}
-          <div className="lg:col-span-5 grid grid-cols-2 gap-4 relative">
+          {/* Left Column: Graphic Portrait & Stats */}
+          <div className="lg:col-span-5 relative flex items-center justify-center">
             {/* Visual element backdrop */}
             <div className="absolute inset-0 bg-slate-100/50 rounded-[30px] -z-10 blur-xl scale-95" />
 
-            {/* Stat Box 1 */}
-            <div className="premium-card p-6 flex flex-col gap-3 justify-center items-center text-center bg-slate-50 border-slate-200/60">
-              <span className="text-4xl">🚀</span>
-              <h3 className="text-3xl font-extrabold text-[#0F172A]">100%</h3>
-              <p className="text-xs text-slate-500 font-bold uppercase tracking-wider font-mono">Concept Driven</p>
+            <div className="relative w-full max-w-sm aspect-[3/4] rounded-2xl overflow-hidden border-[6px] border-white shadow-2xl bg-slate-100">
+              <Image 
+                src="/Imgs/gallery-2.jpeg" 
+                alt="Er. Saurabh Teli - Founder & Director" 
+                fill 
+                className="object-cover" 
+              />
+              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-6 pt-16 text-center">
+                <h3 className="text-2xl font-bold text-white">Er. Saurabh Teli</h3>
+                <p className="text-sm text-[#F59E0B] font-bold tracking-wider uppercase mt-1">Founder & Director</p>
+              </div>
             </div>
 
-            {/* Stat Box 2 */}
-            <div className="premium-card p-6 flex flex-col gap-3 justify-center items-center text-center mt-6 border-amber-200/40 bg-amber-50/20">
-              <span className="text-4xl">🎓</span>
-              <h3 className="text-3xl font-extrabold text-[#F59E0B]">Small</h3>
-              <p className="text-xs text-slate-500 font-bold uppercase tracking-wider font-mono">Batch Sizes</p>
+            {/* Floating Stat Badge 1 */}
+            <div className="absolute -right-4 top-10 bg-white p-4 rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] border border-slate-100 flex flex-col items-center gap-1 z-10">
+              <span className="text-3xl">🚀</span>
+              <h4 className="text-xl font-extrabold text-[#0F172A]">100%</h4>
+              <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Concept Driven</p>
             </div>
-
-            {/* Stat Box 3 */}
-            <div className="premium-card p-6 flex flex-col gap-3 justify-center items-center text-center -mt-6 border-blue-200/30 bg-blue-50/10">
-              <span className="text-4xl">🤖</span>
-              <h3 className="text-3xl font-extrabold text-blue-600">AI</h3>
-              <p className="text-xs text-slate-500 font-bold uppercase tracking-wider font-mono">Smart Classroom</p>
-            </div>
-
-            {/* Stat Box 4 */}
-            <div className="premium-card p-6 flex flex-col gap-3 justify-center items-center text-center bg-slate-50 border-slate-200/60">
-              <span className="text-4xl">📈</span>
-              <h3 className="text-3xl font-extrabold text-[#0F172A]">Proven</h3>
-              <p className="text-xs text-slate-500 font-bold uppercase tracking-wider font-mono">Track Record</p>
+            
+            {/* Floating Stat Badge 2 */}
+            <div className="absolute -left-4 bottom-16 bg-white p-4 rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] border border-slate-100 flex flex-col items-center gap-1 z-10">
+              <span className="text-3xl">🤖</span>
+              <h4 className="text-xl font-extrabold text-blue-600">AI</h4>
+              <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Smart Class</p>
             </div>
           </div>
 

@@ -1,46 +1,64 @@
 "use client";
 
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 import { MapPin, Phone, Mail, Clock, Send, ShieldCheck } from "lucide-react";
+
+const contactSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  phone: z.string().min(10, "Phone must be at least 10 digits"),
+  std: z.string().min(1, "Standard is required"),
+  message: z.string().min(5, "Message must be at least 5 characters"),
+  honeyPot: z.string().max(0, "Invalid input").optional().or(z.literal('')),
+});
+
+type ContactFormValues = z.infer<typeof contactSchema>;
 
 export default function Contact() {
   const [formSubmitted, setFormSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    std: "Std. VIII",
-    message: "",
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<ContactFormValues>({
+    resolver: zodResolver(contactSchema),
+    defaultValues: {
+      name: "",
+      phone: "",
+      std: "Std. VIII",
+      message: "",
+      honeyPot: "",
+    },
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  const onSubmit = async (data: ContactFormValues) => {
     setErrorMsg("");
     
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(data),
       });
       
-      const data = await res.json();
+      const resData = await res.json();
       
       if (!res.ok) {
-        throw new Error(data.error || "Failed to submit inquiry");
+        throw new Error(resData.error || "Failed to submit inquiry");
       }
       
       setFormSubmitted(true);
       setTimeout(() => {
-        setFormData({ name: "", phone: "", std: "Std. VIII", message: "" });
+        reset();
         setFormSubmitted(false);
       }, 5000);
     } catch (err: any) {
       setErrorMsg(err.message);
-    } finally {
-      setIsSubmitting(false);
     }
   };
 
@@ -96,7 +114,7 @@ export default function Contact() {
               {contactInfo.map((info, idx) => (
                 <div
                   key={idx}
-                  className="premium-card p-6 flex gap-4 items-start bg-[#F8FAFC]/50 hover:bg-white border-slate-100"
+                  className="premium-card p-6 flex gap-4 items-start bg-[#F8FAFC]/50 hover:bg-white border-slate-100 transition-colors"
                 >
                   <div className="w-10 h-10 rounded-xl bg-[#F59E0B]/10 flex items-center justify-center shrink-0 border border-[#F59E0B]/20">
                     {info.icon}
@@ -126,55 +144,58 @@ export default function Contact() {
                   </div>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+                  {/* Honeypot field - hidden from real users */}
+                  <div className="hidden" aria-hidden="true">
+                    <label>Don't fill this out if you're human:</label>
+                    <input type="text" {...register("honeyPot")} tabIndex={-1} autoComplete="off" />
+                  </div>
+
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="flex flex-col gap-1.5">
                       <label className="text-xs text-slate-500 font-bold uppercase tracking-wider font-mono">Your Name</label>
                       <input
                         type="text"
-                        required
                         placeholder="Enter full name"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#F59E0B] transition-colors"
+                        {...register("name")}
+                        className={`w-full bg-white border ${errors.name ? 'border-red-500 focus:border-red-500' : 'border-slate-200 focus:border-[#F59E0B]'} rounded-xl px-4 py-3 text-sm focus:outline-none transition-colors`}
                       />
+                      {errors.name && <span className="text-red-500 text-xs mt-0.5">{errors.name.message}</span>}
                     </div>
                     <div className="flex flex-col gap-1.5">
                       <label className="text-xs text-slate-500 font-bold uppercase tracking-wider font-mono">Phone Number</label>
                       <input
                         type="tel"
-                        required
                         placeholder="Enter 10-digit number"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#F59E0B] transition-colors"
+                        {...register("phone")}
+                        className={`w-full bg-white border ${errors.phone ? 'border-red-500 focus:border-red-500' : 'border-slate-200 focus:border-[#F59E0B]'} rounded-xl px-4 py-3 text-sm focus:outline-none transition-colors`}
                       />
+                      {errors.phone && <span className="text-red-500 text-xs mt-0.5">{errors.phone.message}</span>}
                     </div>
                   </div>
 
                   <div className="flex flex-col gap-1.5">
                     <label className="text-xs text-slate-500 font-bold uppercase tracking-wider font-mono">Class / Standard</label>
                     <select
-                      value={formData.std}
-                      onChange={(e) => setFormData({ ...formData, std: e.target.value })}
-                      className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#F59E0B] transition-colors"
+                      {...register("std")}
+                      className={`w-full bg-white border ${errors.std ? 'border-red-500 focus:border-red-500' : 'border-slate-200 focus:border-[#F59E0B]'} rounded-xl px-4 py-3 text-sm focus:outline-none transition-colors`}
                     >
                       <option value="Std. VIII">Std. VIII</option>
                       <option value="Std. IX">Std. IX</option>
                       <option value="Std. X">Std. X</option>
                     </select>
+                    {errors.std && <span className="text-red-500 text-xs mt-0.5">{errors.std.message}</span>}
                   </div>
 
                   <div className="flex flex-col gap-1.5">
                     <label className="text-xs text-slate-500 font-bold uppercase tracking-wider font-mono">Message / Query</label>
                     <textarea
                       rows={3}
-                      required
                       placeholder="Ask about batches, timings, or demo details..."
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#F59E0B] transition-colors resize-none"
+                      {...register("message")}
+                      className={`w-full bg-white border ${errors.message ? 'border-red-500 focus:border-red-500' : 'border-slate-200 focus:border-[#F59E0B]'} rounded-xl px-4 py-3 text-sm focus:outline-none transition-colors resize-none`}
                     />
+                    {errors.message && <span className="text-red-500 text-xs mt-0.5">{errors.message.message}</span>}
                   </div>
 
                   {errorMsg && (
@@ -198,9 +219,9 @@ export default function Contact() {
 
           {/* Right Column: Google Maps Iframe */}
           <div className="lg:col-span-5 w-full h-[400px] lg:h-auto min-h-[350px] relative">
-            <div className="w-full h-full rounded-3xl overflow-hidden border border-slate-200/80 shadow-lg relative group">
+            <div className="w-full h-full rounded-3xl overflow-hidden border border-slate-200/80 shadow-lg relative group bg-slate-100 flex items-center justify-center">
               {/* Overlay location indicator */}
-              <div className="absolute top-4 left-4 z-10 glass px-4 py-2 rounded-xl border-white/10 flex items-center gap-2 max-w-xs shadow-md">
+              <div className="absolute top-4 left-4 z-10 glass px-4 py-2 rounded-xl border-white/10 flex items-center gap-2 max-w-xs shadow-md pointer-events-none">
                 <MapPin className="w-4 h-4 text-[#F59E0B] shrink-0" />
                 <span className="text-[11px] font-bold text-white tracking-wide leading-tight">
                   Hare Krishna House, Savda
