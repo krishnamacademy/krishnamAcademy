@@ -80,6 +80,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        <meta name="google-site-verification" content="wJVsB0micSW8nZtyf2dHWF_k0bNEewuMvtX-OSuyv2Y" />
         <link rel="alternate" href="https://krishnamacademy.in" hrefLang="en-IN" />
         <link rel="alternate" href="https://krishnamacademy.in" hrefLang="en" />
         <link rel="alternate" href="https://krishnamacademy.in" hrefLang="x-default" />
