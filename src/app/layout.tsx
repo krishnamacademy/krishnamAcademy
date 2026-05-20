@@ -19,8 +19,8 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://krishnamacademy.in"),
   title: "Krishnam Academy – Learn Smart. Think Better. Achieve More.",
-  description: "Premier Mathematics & Science coaching for CBSE, English & Semi-English Students (Std. VIII to X) in Savda. Led by Er. Saurabh Teli.",
-  keywords: ["Krishnam Academy", "Krishnam Academy Savda", "CBSE Coaching Savda", "Saurabh Teli Savda", "Mathematics Coaching Savda", "Science Coaching Savda"],
+  description: "Krishnam Academy — Premier Mathematics & Science coaching centre in Savda for CBSE students (Std. VIII–X). Experienced faculty led by Er. Saurabh Teli, focused curriculum, small batches, personalized attention, exam preparation, and competitive exam guidance.",
+  keywords: ["all", "Krishnam Academy", "Krishnam Academy Savda", "CBSE Coaching Savda", "Saurabh Teli Savda", "Mathematics Coaching Savda", "Science Coaching Savda", "tuition", "coaching", "Savda"],
   icons: {
     icon: "https://krishnamacademy.in/Imgs/logo.png",
     apple: "https://krishnamacademy.in/Imgs/logo.png",
@@ -81,6 +81,8 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <head>
         <meta name="google-site-verification" content="wJVsB0micSW8nZtyf2dHWF_k0bNEewuMvtX-OSuyv2Y" />
+        <meta name="description" content="Krishnam Academy — Premier Mathematics & Science coaching centre in Savda for CBSE students (Std. VIII–X). Experienced faculty, focused curriculum, small batches, personalized attention, exam preparation, and competitive exam guidance." />
+        <meta name="keywords" content="all, Krishnam Academy, Krishnam Academy Savda, CBSE Coaching Savda, Saurabh Teli Savda, Mathematics Coaching Savda, Science Coaching Savda, tuition, coaching, Savda" />
         <link rel="alternate" href="https://krishnamacademy.in" hrefLang="en-IN" />
         <link rel="alternate" href="https://krishnamacademy.in" hrefLang="en" />
         <link rel="alternate" href="https://krishnamacademy.in" hrefLang="x-default" />
