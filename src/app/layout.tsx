@@ -80,6 +80,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        <link rel="alternate" href="https://krishnamacademy.in" hrefLang="en-IN" />
+        <link rel="alternate" href="https://krishnamacademy.in" hrefLang="en" />
+        <link rel="alternate" href="https://krishnamacademy.in" hrefLang="x-default" />
+        <link rel="canonical" href="https://krishnamacademy.in" />
+        <meta name="robots" content="index, follow" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
