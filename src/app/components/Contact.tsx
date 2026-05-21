@@ -57,8 +57,8 @@ export default function Contact() {
         reset();
         setFormSubmitted(false);
       }, 5000);
-    } catch (err: any) {
-      setErrorMsg(err.message);
+    } catch (err: unknown) {
+      setErrorMsg(err instanceof Error ? err.message : String(err));
     }
   };
 
@@ -90,12 +90,12 @@ export default function Contact() {
       {/* Background visual detail */}
       <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-slate-50 rounded-full blur-[80px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-8 sm:px-10 lg:px-6 relative z-10">
         
         {/* Header */}
         <div className="text-center flex flex-col items-center gap-4 mb-16">
           <span className="premium-tag">Get in Touch</span>
-          <h2 className="text-4xl font-extrabold text-[#0F172A] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight break-words">
             Contact <span className="gold-text-gradient">KRISHNAM ACADEMY</span>
           </h2>
           <div className="premium-divider" />
@@ -147,7 +147,7 @@ export default function Contact() {
                 <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
                   {/* Honeypot field - hidden from real users */}
                   <div className="hidden" aria-hidden="true">
-                    <label>Don't fill this out if you're human:</label>
+                    <label>Don&apos;t fill this out if you&apos;re human:</label>
                     <input type="text" {...register("honeyPot")} tabIndex={-1} autoComplete="off" />
                   </div>
 

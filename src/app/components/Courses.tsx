@@ -37,11 +37,11 @@ export default function Courses() {
       <div className="absolute top-1/4 left-0 w-[250px] h-[250px] bg-slate-50 rounded-full blur-[80px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-0 w-[250px] h-[250px] bg-slate-50 rounded-full blur-[80px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-8 sm:px-10 lg:px-6 relative z-10">
         {/* Header */}
         <div className="text-center flex flex-col items-center gap-4 mb-16">
           <span className="premium-tag">Classes Available</span>
-          <h2 className="text-4xl font-extrabold text-[#0F172A] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight break-words">
             Academic <span className="gold-text-gradient">Courses Offered</span>
           </h2>
           <div className="premium-divider" />

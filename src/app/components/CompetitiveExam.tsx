@@ -33,14 +33,14 @@ export default function CompetitiveExam() {
       <div className="absolute top-1/3 right-0 w-[300px] h-[300px] bg-slate-50 rounded-full blur-[80px] pointer-events-none" />
       <div className="absolute bottom-10 left-10 w-[200px] h-[200px] bg-amber-50 rounded-full blur-[80px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-8 sm:px-10 lg:px-6 relative z-10">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Column: Core Focus & Lists */}
           <div className="lg:col-span-7 flex flex-col items-start gap-6 text-left">
             <div className="flex flex-col gap-2">
               <span className="premium-tag">PREPARE FOR COMPETITIVE EXAMS IN ADVANCE</span>
-              <h2 className="text-4xl font-extrabold text-[#0F172A] leading-tight">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] leading-tight break-words">
                 Build a Strong Foundation for <span className="gold-text-gradient">Future Achievements</span>
               </h2>
               <div className="premium-divider mt-2" />

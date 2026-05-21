@@ -54,7 +54,7 @@ export default function SocialMediaBar() {
 
   return (
     <section className="py-16 bg-[#F8FAFC] border-t border-slate-100 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-8 sm:px-10 lg:px-6 relative z-10">
         
         {/* Header */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-12">

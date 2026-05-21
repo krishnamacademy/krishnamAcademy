@@ -13,12 +13,12 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-24 bg-white relative overflow-hidden">
+    <section id="about" className="py-16 sm:py-24 bg-white relative overflow-hidden">
       {/* Decorative details */}
       <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-slate-50 rounded-full blur-[80px] pointer-events-none" />
       <div className="absolute bottom-10 left-10 w-[200px] h-[200px] bg-amber-50 rounded-full blur-[80px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-8 sm:px-10 lg:px-6">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           {/* Left Column: Graphic Portrait & Stats */}
           <div className="lg:col-span-5 relative flex items-center justify-center">
@@ -39,17 +39,17 @@ export default function About() {
             </div>
 
             {/* Floating Stat Badge 1 */}
-            <div className="absolute -right-4 top-10 bg-white p-4 rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] border border-slate-100 flex flex-col items-center gap-1 z-10">
-              <span className="text-3xl">🚀</span>
-              <h4 className="text-xl font-extrabold text-[#0F172A]">100%</h4>
-              <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Concept Driven</p>
+            <div className="absolute -right-2 sm:-right-4 top-10 bg-white p-3 sm:p-4 rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] border border-slate-100 flex flex-col items-center gap-1 z-10 scale-90 sm:scale-100 origin-right">
+              <span className="text-2xl sm:text-3xl">🚀</span>
+              <h4 className="text-lg sm:text-xl font-extrabold text-[#0F172A]">100%</h4>
+              <p className="text-[9px] sm:text-[10px] text-slate-500 font-bold uppercase tracking-wider text-center">Concept<br className="sm:hidden" /> Driven</p>
             </div>
             
             {/* Floating Stat Badge 2 */}
-            <div className="absolute -left-4 bottom-16 bg-white p-4 rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] border border-slate-100 flex flex-col items-center gap-1 z-10">
-              <span className="text-3xl">🤖</span>
-              <h4 className="text-xl font-extrabold text-blue-600">AI</h4>
-              <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Smart Class</p>
+            <div className="absolute -left-2 sm:-left-4 bottom-12 sm:bottom-16 bg-white p-3 sm:p-4 rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] border border-slate-100 flex flex-col items-center gap-1 z-10 scale-90 sm:scale-100 origin-left">
+              <span className="text-2xl sm:text-3xl">🤖</span>
+              <h4 className="text-lg sm:text-xl font-extrabold text-blue-600">AI</h4>
+              <p className="text-[9px] sm:text-[10px] text-slate-500 font-bold uppercase tracking-wider text-center">Smart<br className="sm:hidden" /> Class</p>
             </div>
           </div>
 
@@ -57,7 +57,7 @@ export default function About() {
           <div className="lg:col-span-7 flex flex-col items-start gap-6 text-left">
             <div className="flex flex-col gap-2">
               <span className="premium-tag">Welcome to Krishnam Academy</span>
-              <h2 className="text-4xl font-extrabold text-[#0F172A] leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0F172A] leading-tight break-words">
                 Empowering Students Through <span className="gold-text-gradient">Conceptual Learning</span>
               </h2>
               <div className="premium-divider mt-2" />

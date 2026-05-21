@@ -17,7 +17,7 @@ export default function FloatingCTA() {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-6 left-0 right-0 z-40 px-6 flex justify-center md:hidden pointer-events-none transition-all duration-300">
+    <div className="fixed bottom-6 left-0 right-0 z-40 px-8 sm:px-10 flex justify-center md:hidden pointer-events-none transition-all duration-300">
       <div className="glass shadow-2xl rounded-full p-2 flex items-center gap-2 max-w-sm w-full border-white/10 pointer-events-auto">
         {/* Call Button */}
         <a

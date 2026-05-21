@@ -51,11 +51,11 @@ export default function Gallery() {
       {/* Decorative grids */}
       <div className="absolute inset-0 grid-bg opacity-30 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-8 sm:px-10 lg:px-6 relative z-10">
         {/* Header */}
         <div className="text-center flex flex-col items-center gap-4 mb-16">
           <span className="premium-tag">Glimpses of Success</span>
-          <h2 className="text-4xl font-extrabold text-[#0F172A] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight break-words">
             Our <span className="gold-text-gradient">Gallery</span>
           </h2>
           <div className="premium-divider" />

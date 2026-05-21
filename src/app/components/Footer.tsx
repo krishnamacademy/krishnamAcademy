@@ -12,7 +12,7 @@ export default function Footer() {
     <footer className="bg-[#0F172A] text-white pt-16 pb-8 border-t border-white/5 noise relative">
       <div className="absolute inset-0 grid-bg opacity-10 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-8 sm:px-10 lg:px-6 relative z-10">
         
         {/* Footer Top */}
         <div className="grid md:grid-cols-12 gap-8 mb-12">
@@ -64,9 +64,21 @@ export default function Footer() {
 
         {/* Footer Bottom */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-slate-500 text-xs font-medium font-mono text-center sm:text-left">
-            © {new Date().getFullYear()} Krishnam Academy Savda. All rights reserved.
-          </p>
+          <div className="flex flex-col gap-1 items-center sm:items-start">
+            <p className="text-slate-500 text-xs font-medium font-mono text-center sm:text-left">
+              © {new Date().getFullYear()} Krishnam Academy Savda. All rights reserved.
+            </p>
+            <p className="text-slate-500 text-[11px] font-medium font-mono text-center sm:text-left">
+              Designed & Developed by{" "}
+              <a href="https://www.sachinrathod.in/" target="_blank" rel="noopener noreferrer" className="text-[#FBBF24] hover:text-[#F59E0B] transition-colors">
+                Sachin Rathod
+              </a>
+              {" "}at{" "}
+              <a href="https://www.itpravah.in/" target="_blank" rel="noopener noreferrer" className="text-[#FBBF24] hover:text-[#F59E0B] transition-colors">
+                IT Pravaha
+              </a>
+            </p>
+          </div>
           
           <button
             onClick={scrollToTop}

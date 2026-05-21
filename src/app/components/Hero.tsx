@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Phone, Calendar, MapPin, Compass, Mail, Award, BookOpen, GraduationCap } from "lucide-react";
+import { Phone, Calendar, MapPin, Mail, Award, BookOpen, GraduationCap } from "lucide-react";
 import { Youtube } from "./icons/Youtube";
 import { Facebook } from "./icons/Facebook";
 import { Instagram } from "./icons/Instagram";
@@ -22,25 +22,25 @@ export default function Hero() {
         </svg>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-12 gap-12 items-center">
+      <div className="max-w-7xl mx-auto px-8 sm:px-10 lg:px-6 relative z-10 grid lg:grid-cols-12 gap-12 items-center">
         {/* Left Column: Heading and Details */}
         <div className="lg:col-span-7 flex flex-col items-start gap-6 text-left">
           {/* Admissions Badge */}
           <div className="inline-flex items-center gap-2 bg-[#F59E0B]/10 border border-[#F59E0B]/30 rounded-full px-4.5 py-1.5 shadow-sm">
             <span className="w-2.5 h-2.5 rounded-full bg-[#F59E0B] animate-ping" />
-            <span className="text-xs uppercase font-extrabold text-[#FBBF24] tracking-widest font-mono">
+            <span className="text-[10px] sm:text-xs uppercase font-extrabold text-[#FBBF24] tracking-widest font-mono">
               Admissions Open for Std. VIII to X
             </span>
           </div>
 
           {/* Main Title */}
-          <h1 className="text-5xl md:text-6.5xl font-black tracking-tight leading-[1.1] text-white">
-            KRISHNAM <br className="hidden md:inline" />
+          <h1 className="text-4xl sm:text-5xl md:text-6.5xl font-black tracking-tight leading-[1.1] text-white break-words w-full">
+            KRISHNAM <br />
             <span className="gold-text-gradient">ACADEMY</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg md:text-xl text-slate-300 font-medium leading-relaxed max-w-2xl">
+          <p className="text-base sm:text-lg md:text-xl text-slate-300 font-medium leading-relaxed max-w-2xl">
             Concept-driven <span className="text-[#FBBF24] font-semibold">Mathematics & Science Coaching</span> tailored for CBSE, English, and Semi-English medium students.
           </p>
 
@@ -57,12 +57,12 @@ export default function Hero() {
           </div>
 
           {/* Hero Action CTA Buttons */}
-          <div className="flex flex-wrap items-center gap-4 w-full mt-4">
-            <a href="tel:+919511837664" className="btn-gold !py-3.5 !px-8 text-base">
+          <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 w-full mt-4">
+            <a href="tel:+919511837664" className="btn-gold justify-center !py-3.5 sm:!py-3.5 !px-6 sm:!px-8 text-sm sm:text-base">
               <Phone className="w-4 h-4" />
               <span>Call Now</span>
             </a>
-            <a href="#contact" className="btn-outline !py-3.5 !px-8 text-base bg-white/5">
+            <a href="#contact" className="btn-outline justify-center !py-3.5 sm:!py-3.5 !px-6 sm:!px-8 text-sm sm:text-base bg-white/5">
               <Calendar className="w-4 h-4 text-[#F59E0B]" />
               <span>Book Free Demo</span>
             </a>
@@ -70,7 +70,7 @@ export default function Hero() {
               href="https://maps.app.goo.gl/WvNZNGp7BRq8WKys8"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-slate-300 hover:text-[#F59E0B] font-bold tracking-wide transition-colors py-2 px-3 hover:bg-white/5 rounded-lg"
+              className="inline-flex items-center justify-center gap-2 text-sm text-slate-300 hover:text-[#F59E0B] font-bold tracking-wide transition-colors py-2 px-3 hover:bg-white/5 rounded-lg w-full sm:w-auto mt-2 sm:mt-0"
             >
               <MapPin className="w-4 h-4" />
               <span>View Location</span>
@@ -78,8 +78,8 @@ export default function Hero() {
           </div>
 
           {/* Quick social follow list */}
-          <div className="flex items-center gap-4 mt-2">
-            <span className="text-xs text-slate-400 font-semibold uppercase tracking-wider">Follow Us:</span>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mt-2 w-full">
+            <span className="text-[11px] sm:text-xs text-slate-400 font-semibold uppercase tracking-wider">Follow Us:</span>
             <div className="flex items-center gap-3">
               {[
                 { icon: <Facebook className="w-4 h-4" />, href: "https://www.facebook.com/share/1BrrUTZA9P/", label: "Facebook" },
@@ -103,7 +103,7 @@ export default function Hero() {
 
         {/* Right Column: Key Details Sidebar Card */}
         <div className="lg:col-span-5 flex flex-col w-full relative">
-          <div className="glass-premium p-8 rounded-3xl relative z-10 w-full flex flex-col gap-6 shadow-2xl animate-float">
+          <div className="glass-premium p-6 sm:p-8 rounded-2xl sm:rounded-3xl relative z-10 w-full flex flex-col gap-5 sm:gap-6 shadow-2xl animate-float">
             {/* Soft gold decorative corner */}
             <div className="absolute -top-3 -right-3 w-16 h-16 border-t-2 border-r-2 border-[#F59E0B] rounded-tr-3xl opacity-60" />
 
@@ -144,7 +144,7 @@ export default function Hero() {
               </div>
               <div>
                 <h4 className="text-xs text-slate-400 font-bold uppercase tracking-wider font-mono">Email Address</h4>
-                <p className="text-sm text-slate-200 font-medium leading-relaxed">krishnamacademy.savda@gmail.com</p>
+                <p className="text-sm text-slate-200 font-medium leading-relaxed break-all">krishnamacademy.savda@gmail.com</p>
               </div>
             </div>
 

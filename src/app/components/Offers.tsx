@@ -40,11 +40,11 @@ export default function Offers() {
       <div className="absolute inset-0 grid-bg opacity-30 pointer-events-none" />
       <div className="absolute top-1/2 left-1/4 w-[350px] h-[350px] rounded-full bg-[#F59E0B]/5 blur-[100px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-8 sm:px-10 lg:px-6 relative z-10">
         {/* Header */}
         <div className="text-center flex flex-col items-center gap-4 mb-16">
           <span className="premium-tag !bg-white/5 !text-[#FBBF24] !border-white/10">Special Admission Offers</span>
-          <h2 className="text-4xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight break-words">
             Scholarships & <span className="gold-text-gradient">Admission Offers</span>
           </h2>
           <div className="premium-divider" />

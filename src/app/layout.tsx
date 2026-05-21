@@ -80,6 +80,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <meta name="google-site-verification" content="wJVsB0micSW8nZtyf2dHWF_k0bNEewuMvtX-OSuyv2Y" />
         <meta name="description" content="Krishnam Academy — Premier Mathematics & Science coaching centre in Savda for CBSE students (Std. VIII–X). Experienced faculty, focused curriculum, small batches, personalized attention, exam preparation, and competitive exam guidance." />
         <meta name="keywords" content="all, Krishnam Academy, Krishnam Academy Savda, CBSE Coaching Savda, Saurabh Teli Savda, Mathematics Coaching Savda, Science Coaching Savda, tuition, coaching, Savda" />
@@ -88,6 +89,11 @@ export default function RootLayout({
         <link rel="alternate" href="https://krishnamacademy.in" hrefLang="x-default" />
         <link rel="canonical" href="https://krishnamacademy.in" />
         <meta name="robots" content="index, follow" />
+        
+        {/* Explicit Favicon Links for Google Search Logo */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/Imgs/logo.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/Imgs/logo.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
