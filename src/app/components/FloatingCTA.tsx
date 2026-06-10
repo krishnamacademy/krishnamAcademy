@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Phone, Calendar, Send } from "lucide-react";
+import { Phone, Calendar } from "lucide-react";
 
 export default function FloatingCTA() {
   const [isVisible, setIsVisible] = useState(false);

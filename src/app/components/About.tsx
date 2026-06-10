@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { CheckCircle2, Star, Users, BrainCircuit } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 
 export default function About() {
   const focusAreas = [

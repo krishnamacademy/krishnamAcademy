@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ShieldCheck, Target, Award, Rocket, HelpCircle, Trophy } from "lucide-react";
+import { ShieldCheck, Target, Award, Rocket, Trophy } from "lucide-react";
 
 export default function CompetitiveExam() {
   const exams = [

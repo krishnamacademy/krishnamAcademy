@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://krishnamacademy.in"),
   title: "Krishnam Academy – Learn Smart. Think Better. Achieve More.",
   description: "Krishnam Academy — Premier Mathematics & Science coaching centre in Savda for CBSE students (Std. VIII–X). Experienced faculty led by Er. Saurabh Teli, focused curriculum, small batches, personalized attention, exam preparation, and competitive exam guidance.",
-  keywords: ["all", "Krishnam Academy", "Krishnam Academy Savda", "CBSE Coaching Savda", "Saurabh Teli Savda", "Mathematics Coaching Savda", "Science Coaching Savda", "tuition", "coaching", "Savda"],
+  keywords: ["Krishnam Academy", "Krishnam Academy Savda", "CBSE Coaching Savda", "Saurabh Teli Savda", "Mathematics Coaching Savda", "Science Coaching Savda", "tuition", "coaching", "Savda"],
   icons: {
     icon: "https://krishnamacademy.in/Imgs/logo.png",
     apple: "https://krishnamacademy.in/Imgs/logo.png",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Krishnam Academy – Learn Smart. Think Better. Achieve More.",
     description: "Premier Mathematics & Science coaching for CBSE Std. VIII to X in Savda. Led by Er. Saurabh Teli (B.E. Mechanical, B.Ed.).",
-    url: "https://krishnamacademy.in", // Placeholder URL
+    url: "https://krishnamacademy.in",
     type: "website",
     locale: "en_IN",
     siteName: "Krishnam Academy",
@@ -80,10 +80,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="google-site-verification" content="wJVsB0micSW8nZtyf2dHWF_k0bNEewuMvtX-OSuyv2Y" />
-        <meta name="description" content="Krishnam Academy — Premier Mathematics & Science coaching centre in Savda for CBSE students (Std. VIII–X). Experienced faculty, focused curriculum, small batches, personalized attention, exam preparation, and competitive exam guidance." />
-        <meta name="keywords" content="all, Krishnam Academy, Krishnam Academy Savda, CBSE Coaching Savda, Saurabh Teli Savda, Mathematics Coaching Savda, Science Coaching Savda, tuition, coaching, Savda" />
         <link rel="alternate" href="https://krishnamacademy.in" hrefLang="en-IN" />
         <link rel="alternate" href="https://krishnamacademy.in" hrefLang="en" />
         <link rel="alternate" href="https://krishnamacademy.in" hrefLang="x-default" />
@@ -91,8 +89,7 @@ export default function RootLayout({
         <meta name="robots" content="index, follow" />
         
         {/* Explicit Favicon Links for Google Search Logo */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/Imgs/logo.png" type="image/png" />
+        <link rel="icon" href="/Imgs/favicon-32.png" type="image/png" sizes="32x32" />
         <link rel="apple-touch-icon" href="/Imgs/logo.png" />
         <script
           type="application/ld+json"

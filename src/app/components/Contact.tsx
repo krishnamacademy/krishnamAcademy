@@ -8,7 +8,8 @@ import { MapPin, Phone, Mail, Clock, Send, ShieldCheck } from "lucide-react";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
-  phone: z.string().min(10, "Phone must be at least 10 digits"),
+  phone: z.string().min(10, "Mobile number must be at least 10 digits"),
+  email: z.string().email("Invalid email address").optional().or(z.literal('')),
   std: z.string().min(1, "Standard is required"),
   message: z.string().min(5, "Message must be at least 5 characters"),
   honeyPot: z.string().max(0, "Invalid input").optional().or(z.literal('')),
@@ -30,6 +31,7 @@ export default function Contact() {
     defaultValues: {
       name: "",
       phone: "",
+      email: "",
       std: "Std. VIII",
       message: "",
       honeyPot: "",
@@ -141,6 +143,9 @@ export default function Contact() {
                     <p className="text-xs text-emerald-600 mt-1 leading-relaxed">
                       Thank you for contacting us. Er. Saurabh Teli will reach out to you shortly.
                     </p>
+                    <p className="text-xs text-emerald-600 mt-2 leading-relaxed font-medium">
+                      A confirmation has been sent to your email (if provided).
+                    </p>
                   </div>
                 </div>
               ) : (
@@ -163,15 +168,27 @@ export default function Contact() {
                       {errors.name && <span className="text-red-500 text-xs mt-0.5">{errors.name.message}</span>}
                     </div>
                     <div className="flex flex-col gap-1.5">
-                      <label className="text-xs text-slate-500 font-bold uppercase tracking-wider font-mono">Phone Number</label>
+                      <label className="text-xs text-slate-500 font-bold uppercase tracking-wider font-mono">Mobile Number</label>
                       <input
                         type="tel"
-                        placeholder="Enter 10-digit number"
+                        inputMode="tel"
+                        placeholder="Enter mobile number"
                         {...register("phone")}
                         className={`w-full bg-white border ${errors.phone ? 'border-red-500 focus:border-red-500' : 'border-slate-200 focus:border-[#F59E0B]'} rounded-xl px-4 py-3 text-sm focus:outline-none transition-colors`}
                       />
                       {errors.phone && <span className="text-red-500 text-xs mt-0.5">{errors.phone.message}</span>}
                     </div>
+                  </div>
+
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-xs text-slate-500 font-bold uppercase tracking-wider font-mono">Email Address (Optional)</label>
+                    <input
+                      type="email"
+                      placeholder="Enter email address"
+                      {...register("email")}
+                      className={`w-full bg-white border ${errors.email ? 'border-red-500 focus:border-red-500' : 'border-slate-200 focus:border-[#F59E0B]'} rounded-xl px-4 py-3 text-sm focus:outline-none transition-colors`}
+                    />
+                    {errors.email && <span className="text-red-500 text-xs mt-0.5">{errors.email.message}</span>}
                   </div>
 
                   <div className="flex flex-col gap-1.5">

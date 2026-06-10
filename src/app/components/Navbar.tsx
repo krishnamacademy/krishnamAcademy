@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { GraduationCap, Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 
 import Image from "next/image";
 

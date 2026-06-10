@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Flame, ShieldAlert, Award, ArrowUpRight, Percent, Accessibility } from "lucide-react";
+import { Flame, ArrowUpRight, Percent, Accessibility } from "lucide-react";
 
 export default function Offers() {
   const offers = [

@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://krishnamacademy.com/sitemap.xml',
+    sitemap: 'https://krishnamacademy.in/sitemap.xml',
   };
 }
