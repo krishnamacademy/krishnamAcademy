@@ -32,6 +32,7 @@ const Testimonials = dynamic(() => import("./components/Testimonials"));
 const Contact = dynamic(() => import("./components/Contact"));
 const SocialMediaBar = dynamic(() => import("./components/SocialMediaBar"));
 const Footer = dynamic(() => import("./components/Footer"));
+import FeedbackForm from "./components/feedbackform";
 
 export default function Home() {
   return (
@@ -48,6 +49,7 @@ export default function Home() {
         <CompetitiveExam />
         <Testimonials />
         <Contact />
+        <FeedbackForm />
         <SocialMediaBar />
       </div>
       <Footer />

@@ -16,38 +16,42 @@ export default function Gallery() {
     },
     {
       label: "Classroom Layout",
-      image: "/Imgs/gallery-4.jpeg",
+      image: "/Imgs/gallery-6.jpeg",
       desc: "Spacious seating arrangement with modern desks ensuring comfort for every student.",
       tag: "Infrastructure",
     },
     {
-      label: "Digital Learning",
-      image: "/Imgs/gallery-5.jpeg",
-      desc: "State-of-the-art interactive panels facilitating dynamic presentations and active engagement.",
+      label: "Hands-On Learning",
+      image: "/Imgs/IMG20260614104023.jpg",
+      desc: "Students actively engaging with interactive tools and experiments for better understanding.",
       tag: "Engagement",
     },
     {
       label: "Spacious Environment",
-      image: "/Imgs/gallery-6.jpeg",
+      image: "/Imgs/IMG20260725100745.jpg",
       desc: "Well-ventilated and bright classrooms designed to maintain student focus and energy.",
       tag: "Ambiance",
     },
-    {
-      label: "Comfortable Seating",
-      image: "/Imgs/gallery-7.jpeg",
-      desc: "Ergonomically designed desks prioritizing student posture during long study sessions.",
-      tag: "Comfort",
-    },
+
     {
       label: "Dedicated Study Zones",
-      image: "/Imgs/gallery-8.jpeg",
+      image: "/Imgs/IMG20260614104049.jpg",
       desc: "Organized learning spaces that minimize distractions and foster a quiet study atmosphere.",
       tag: "Focus",
+    },
+    {
+      label: "Collaborative Learning",
+      image: "/Imgs/IMG20260614103936.jpg",
+      desc: "Encouraging teamwork and peer-to-peer learning through group activities and discussions.",
+      tag: "Collaboration",
     },
   ];
 
   return (
-    <section id="gallery" className="py-24 bg-[#F8FAFC] relative overflow-hidden">
+    <section
+      id="gallery"
+      className="py-24 bg-[#F8FAFC] relative overflow-hidden"
+    >
       {/* Decorative grids */}
       <div className="absolute inset-0 grid-bg opacity-30 pointer-events-none" />
 
@@ -60,7 +64,8 @@ export default function Gallery() {
           </h2>
           <div className="premium-divider" />
           <p className="text-slate-500 max-w-xl text-center leading-relaxed">
-            Take a look at the energetic and engaging learning environment at Krishnam Academy.
+            Take a look at the energetic and engaging learning environment at
+            Krishnam Academy.
           </p>
         </div>
 
@@ -74,13 +79,13 @@ export default function Gallery() {
             >
               {/* Graphic visual card screen */}
               <div className="relative h-56 bg-slate-900 flex items-center justify-center overflow-hidden shrink-0">
-                <Image 
-                  src={room.image} 
-                  alt={room.label} 
-                  fill 
-                  className="object-cover opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500" 
+                <Image
+                  src={room.image}
+                  alt={room.label}
+                  fill
+                  className="object-cover opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500"
                 />
-                
+
                 <div className="absolute top-4 left-4 z-10">
                   <span className="text-[10px] uppercase font-bold tracking-widest bg-black/50 backdrop-blur-md text-white border border-white/20 px-2.5 py-1 rounded-full font-mono">
                     {room.tag}
@@ -98,7 +103,7 @@ export default function Gallery() {
                     {room.desc}
                   </p>
                 </div>
-                
+
                 <div className="flex items-center gap-1.5 mt-4 text-[10px] text-[#F59E0B] font-bold uppercase tracking-wider font-mono">
                   <ShieldCheck className="w-3.5 h-3.5" />
                   <span>Interactive Setup Active</span>
@@ -111,11 +116,11 @@ export default function Gallery() {
 
       {/* Fullscreen Image Modal */}
       {selectedImage && (
-        <div 
+        <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
           onClick={() => setSelectedImage(null)}
         >
-          <button 
+          <button
             className="absolute top-6 right-6 text-white hover:text-[#F59E0B] transition-colors bg-white/10 hover:bg-white/20 p-2 rounded-full"
             onClick={(e) => {
               e.stopPropagation();
@@ -124,8 +129,8 @@ export default function Gallery() {
           >
             <X className="w-8 h-8" />
           </button>
-          
-          <div 
+
+          <div
             className="relative w-full max-w-6xl h-[85vh] rounded-2xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >

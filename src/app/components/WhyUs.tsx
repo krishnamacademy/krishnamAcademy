@@ -1,7 +1,16 @@
 "use client";
 
 import React from "react";
-import { Laptop, Compass, FileSpreadsheet, Users, Trophy, MessageCircle, Star, Sparkles } from "lucide-react";
+import {
+  Laptop,
+  Compass,
+  FileSpreadsheet,
+  Users,
+  Trophy,
+  MessageCircle,
+  Star,
+  Sparkles,
+} from "lucide-react";
 
 export default function WhyUs() {
   const features = [
@@ -28,7 +37,7 @@ export default function WhyUs() {
     {
       icon: <Trophy className="w-6 h-6 text-[#F59E0B]" />,
       title: "Board & Competitive Prep",
-      desc: "Early orientation for NTSE, Olympiads, and intensive preparation to ace Class X board exams.",
+      desc: "Early orientation for JEE, NEET, MHT-CET and intensive preparation to ace Class X board exams.",
     },
     {
       icon: <MessageCircle className="w-6 h-6 text-[#F59E0B]" />,
@@ -48,7 +57,10 @@ export default function WhyUs() {
   ];
 
   return (
-    <section id="why-us" className="py-24 bg-[#F8FAFC] relative overflow-hidden">
+    <section
+      id="why-us"
+      className="py-24 bg-[#F8FAFC] relative overflow-hidden"
+    >
       {/* Decorative dots background */}
       <div className="absolute inset-0 dot-bg opacity-30 pointer-events-none" />
 
@@ -57,11 +69,13 @@ export default function WhyUs() {
         <div className="text-center flex flex-col items-center gap-4 mb-16">
           <span className="premium-tag">Our Key Features</span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight break-words">
-            Why Choose <span className="gold-text-gradient">KRISHNAM ACADEMY</span>
+            Why Choose{" "}
+            <span className="gold-text-gradient">KRISHNAM ACADEMY</span>
           </h2>
           <div className="premium-divider" />
           <p className="text-slate-500 max-w-xl text-center leading-relaxed">
-            We offer premium facilities, expert mentorship, and concept-oriented methods that build absolute confidence.
+            We offer premium facilities, expert mentorship, and concept-oriented
+            methods that build absolute confidence.
           </p>
         </div>
 

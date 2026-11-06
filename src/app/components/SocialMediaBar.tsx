@@ -9,65 +9,57 @@ import { Instagram } from "./icons/Instagram";
 export default function SocialMediaBar() {
   const platforms = [
     {
-      name: "Facebook Page",
-      icon: <Facebook className="w-6 h-6" />,
-      url: "https://www.facebook.com/share/1BrrUTZA9P/",
-      color: "hover:bg-[#1877F2]/10 hover:text-[#1877F2] hover:border-[#1877F2]/30",
-      desc: "Latest academy updates",
-    },
-    {
       name: "Instagram Profile",
       icon: <Instagram className="w-6 h-6" />,
       url: "https://www.instagram.com/krishnamacademy",
-      color: "hover:bg-[#E1306C]/10 hover:text-[#E1306C] hover:border-[#E1306C]/30",
+      color:
+        "hover:bg-[#E1306C]/10 hover:text-[#E1306C] hover:border-[#E1306C]/30",
+      desc: "Photos & daily snippets",
+    },
+    {
+      name: "Facebook Profile",
+      icon: <Facebook className="w-6 h-6" />,
+      url: "https://Facebook.com/people/Krishnam-Academy/61586205057417/?rdid=QMj3oUxwWBlkmNeO&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1BrrUTZA9P%2F",
+      color:
+        "hover:bg-[#1877F2]/10 hover:text-[#1877F2] hover:border-[#1877F2]/30",
       desc: "Photos & daily snippets",
     },
     {
       name: "YouTube Channel",
       icon: <Youtube className="w-6 h-6" />,
       url: "https://www.youtube.com/@Krishnam.Academy",
-      color: "hover:bg-[#FF0000]/10 hover:text-[#FF0000] hover:border-[#FF0000]/30",
+      color:
+        "hover:bg-[#FF0000]/10 hover:text-[#FF0000] hover:border-[#FF0000]/30",
       desc: "Video lectures & concept clips",
     },
-    {
-      name: "Telegram Group",
-      icon: <Send className="w-6 h-6" />,
-      url: "https://t.me/+RxSgRmn-BCk3MjQ1",
-      color: "hover:bg-[#0088cc]/10 hover:text-[#0088cc] hover:border-[#0088cc]/30",
-      desc: "Join student discussions",
-    },
-    {
-      name: "Google Map Profile",
-      icon: <Map className="w-6 h-6" />,
-      url: "https://maps.app.goo.gl/YMXUjmKTDZz9m6S2A",
-      color: "hover:bg-[#34A853]/10 hover:text-[#34A853] hover:border-[#34A853]/30",
-      desc: "Read reviews & ratings",
-    },
+
     {
       name: "Academy Direction",
       icon: <Navigation className="w-6 h-6" />,
       url: "https://maps.app.goo.gl/WvNZNGp7BRq8WKys8",
-      color: "hover:bg-[#4285F4]/10 hover:text-[#4285F4] hover:border-[#4285F4]/30",
+      color:
+        "hover:bg-[#4285F4]/10 hover:text-[#4285F4] hover:border-[#4285F4]/30",
       desc: "Get driving route instructions",
     },
   ];
 
   return (
-    <section className="py-16 bg-[#F8FAFC] border-t border-slate-100 relative overflow-hidden">
+    <section className="py-16 bg-[#F8FAFC] mt-5 border-t border-slate-100 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-8 sm:px-10 lg:px-6 relative z-10">
-        
         {/* Header */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-12">
           <div className="flex flex-col gap-1.5 text-left">
             <span className="premium-tag">Stay Connected</span>
             <h3 className="text-2xl md:text-3xl font-black text-[#0F172A]">
-              Follow <span className="gold-text-gradient">KRISHNAM ACADEMY</span>
+              Follow{" "}
+              <span className="gold-text-gradient">KRISHNAM ACADEMY</span>
             </h3>
             <p className="text-slate-500 text-sm">
-              Follow our official handles to receive the latest updates, event details, and educational content.
+              Follow our official handles to receive the latest updates, event
+              details, and educational content.
             </p>
           </div>
-          
+
           <div className="h-1 w-16 bg-[#F59E0B] rounded-full hidden md:block" />
         </div>
 
@@ -102,7 +94,6 @@ export default function SocialMediaBar() {
             </a>
           ))}
         </div>
-
       </div>
     </section>
   );

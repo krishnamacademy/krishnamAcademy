@@ -39,14 +39,21 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#" className="flex items-center gap-3 group">
           <div className="relative w-12 h-12 rounded-xl bg-white shadow-md group-hover:scale-105 transition-transform duration-300 overflow-hidden flex items-center justify-center p-1 border border-white/10">
-            <Image src="/Imgs/logo.png" alt="Krishnam Academy Logo" width={40} height={40} className="object-contain" priority />
+            <Image
+              src="/Imgs/logo.png"
+              alt="Krishnam Academy Logo"
+              width={40}
+              height={40}
+              className="object-contain"
+              priority
+            />
           </div>
           <div className="flex flex-col">
             <span className="font-extrabold text-lg md:text-xl tracking-tight text-white group-hover:text-[#F59E0B] transition-colors duration-300">
               KRISHNAM <span className="text-[#F59E0B]">ACADEMY</span>
             </span>
             <span className="text-[9px] uppercase tracking-widest text-slate-400 font-bold -mt-1 font-mono">
-              Learn Smart. Think Better.
+              Guide To <span className=" font-mono">Fulfillment</span>
             </span>
           </div>
         </a>

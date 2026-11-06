@@ -5,11 +5,7 @@ import { ShieldCheck, Target, Award, Rocket, Trophy } from "lucide-react";
 
 export default function CompetitiveExam() {
   const exams = [
-    {
-      name: "NTSE (National Talent Search Exam)",
-      desc: "Comprehensive coverage of Mental Ability Test (MAT) and Scholastic Aptitude Test (SAT) questions early in class IX & X.",
-      icon: <Target className="w-5 h-5 text-[#F59E0B]" />,
-    },
+    
     {
       name: "Olympiads (Science & Mathematics)",
       desc: "Advanced logic questions and high-order thinking problems tailored to clear national/international Olympiad levels.",
@@ -51,7 +47,7 @@ export default function CompetitiveExam() {
             </p>
 
             {/* List of Exams */}
-            <div className="flex flex-col gap-6 w-full mt-4">
+            <div className="flex flex-col gap-6 w-full mt-1">
               {exams.map((exam, idx) => (
                 <div key={idx} className="flex gap-4 items-start group">
                   <div className="w-10 h-10 rounded-xl bg-[#F59E0B]/10 border border-[#F59E0B]/20 flex items-center justify-center shrink-0 group-hover:bg-[#F59E0B] group-hover:text-white transition-colors duration-300">

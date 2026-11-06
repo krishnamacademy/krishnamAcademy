@@ -35,8 +35,8 @@ export default function Hero() {
 
           {/* Main Title */}
           <h1 className="text-4xl sm:text-5xl md:text-6.5xl font-black tracking-tight leading-[1.1] text-white break-words w-full">
-            KRISHNAM <br />
-            <span className="gold-text-gradient">ACADEMY</span>
+            KRISHNAM 
+            <span className="gold-text-gradient"> ACADEMY</span>
           </h1>
 
           {/* Subtitle */}

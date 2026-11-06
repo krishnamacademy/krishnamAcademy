@@ -6,22 +6,25 @@ import { Star, Quote, UserRoundCheck } from "lucide-react";
 export default function Testimonials() {
   const reviews = [
     {
-      quote: "Best academy for conceptual understanding and board preparation. Er. Saurabh Teli's approach to complex Mathematics concepts is absolutely stellar. My child's test scores improved by 35% in just six months.",
+      quote:
+        "Best academy for conceptual understanding and board preparation. Er. Saurabh Teli's approach to complex Mathematics concepts is absolutely stellar. My child's test scores improved by 35% in just six months.",
       author: "Mr. Ramesh Patil",
       role: "Parent of Class X Student",
       stars: 5,
     },
     {
-      quote: "Smart teaching methods and personal attention improved my confidence immensely. The AI classrooms helped me visualize tough Science processes very easily. Truly a transformative tutoring experience.",
+      quote:
+        "Smart teaching methods and personal attention improved my confidence immensely. The AI classrooms helped me visualize tough Science processes very easily. Truly a transformative tutoring experience.",
       author: "Kunal Chaudhari",
       role: "Class X CBSE Student",
-      stars: 5,
+      stars: 4,
     },
     {
-      quote: "Excellent guidance for Mathematics and Science. The small batch sizes are the best part. I could ask unlimited questions without any hesitation, and every doubt was patiently resolved.",
+      quote:
+        "Excellent guidance for Mathematics and Science. The small batch sizes are the best part. I could ask unlimited questions without any hesitation, and every doubt was patiently resolved.",
       author: "Mrs. Sunita Teli",
       role: "Parent of Class IX Student",
-      stars: 5,
+      stars: 4,
     },
   ];
 
@@ -39,10 +42,16 @@ export default function Testimonials() {
           </h2>
           <div className="premium-divider" />
           <p className="text-slate-500 max-w-xl text-center leading-relaxed">
-            Real feedback from local parents and students who achieved outstanding outcomes under our guidance.
+            Real feedback from local parents and students who achieved
+            outstanding outcomes under our guidance.
           </p>
         </div>
 
+<div className="addreating">
+        <button className="bg-[#F59E0B] hover:bg-[#F59E0B]/80 text-white font-bold py-2 px-4 rounded-full transition-colors">
+          + Add Review
+        </button>
+      </div>
         {/* Testimonials Grid */}
         <div className="grid lg:grid-cols-3 gap-8">
           {reviews.map((rev, idx) => (
@@ -59,7 +68,10 @@ export default function Testimonials() {
                 {/* Star Ratings */}
                 <div className="flex items-center gap-1.5 mb-6">
                   {Array.from({ length: rev.stars }).map((_, sIdx) => (
-                    <Star key={sIdx} className="w-4 h-4 fill-[#F59E0B] text-[#F59E0B]" />
+                    <Star
+                      key={sIdx}
+                      className="w-4 h-4 fill-[#F59E0B] text-[#F59E0B]"
+                    />
                   ))}
                 </div>
 
@@ -83,11 +95,12 @@ export default function Testimonials() {
                   </p>
                 </div>
               </div>
-
             </div>
           ))}
         </div>
       </div>
+
+      
     </section>
   );
 }
